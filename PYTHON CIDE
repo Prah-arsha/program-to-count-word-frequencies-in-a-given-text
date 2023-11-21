@@ -1,0 +1,25 @@
+from collections import Counter
+import string
+
+def count_word_frequencies(text):
+    # Remove punctuation and convert to lowercase
+    text = text.lower()
+    text = text.translate(str.maketrans("", "", string.punctuation))
+
+    # Split the text into words
+    words = text.split()
+
+    # Count the frequencies of each word
+    word_frequencies = Counter(words)
+
+    return word_frequencies
+
+if __name__ == "__main__":
+    # Example usage
+    input_text = "This is a sample text. The text is used for testing the word frequency program."
+    
+    frequencies = count_word_frequencies(input_text)
+
+    print("Word frequencies:")
+    for word, count in frequencies.items():
+        print(f"{word}: {count}")
